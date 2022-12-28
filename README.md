@@ -1,2 +1,2 @@
-# dasmanas.github.io
-Manas public page
+# Manas Das
+Manas' blog
