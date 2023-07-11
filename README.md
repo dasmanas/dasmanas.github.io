@@ -1,2 +1,0 @@
-# Manas Das
-Manas' blog
