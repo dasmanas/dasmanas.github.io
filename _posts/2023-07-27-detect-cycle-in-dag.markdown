@@ -8,22 +8,6 @@ mermaid: true
 In a directed acylic graph, cycle is not expected. If it is there, we can find it using Depth First Traversal Technique. In a recursive call, if we keep track of visited nodes, we will able to identify if there is any cycle exist. But in landscape of large scale data using DFS could be challenging as we have to keep maininting the visited nodes array and need to pass to the next node. It might cause a high memory overhead to the solution. The task could be solved in a bit different approach using [Rocha–Thatte cycle detection algorithm](https://en.wikipedia.org/wiki/Rocha–Thatte_cycle_detection_algorithm).
 
 <div class="mermaid">
-graph LR
-    A --- B
-    B-->C[Happy]
-    B-->D(Sad);
-</div>
-
-<div class="mermaid">
-    graph TD
-      B[peace]
-      B-->C[fa:fa-ban forbidden]
-      B-->D(fa:fa-spinner);
-      B-->E(fa:fa-camera-retro perhaps?);
-</div>
-
-
-```mermaid!
 ---
 title: Iteration 1
 ---
@@ -33,8 +17,9 @@ flowchart LR
         C -->|C| E
         C -->|C| D
         D -->|D| B
-```
-```mermaid!
+</div>
+
+<div class="mermaid">
 ---
 title: Iteration 2
 ---
@@ -44,8 +29,8 @@ flowchart LR
         C -->|B,C| E
         C -->|B,C| D
         D -->|C,D| B
-```
-```mermaid!
+</div>
+<div class="mermaid">
 ---
 title: Iteration 3
 ---
@@ -55,5 +40,5 @@ flowchart LR
         C -->|B,C| E
         C -->|B,C| D
         D -->|C,D| B
-```
+</div>
 
