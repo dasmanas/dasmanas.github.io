@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>In Large Dataset Detect Cycles in a DAG! | Manas Das</title>
 <meta name="generator" content="Jekyll v4.3.2">
@@ -24,7 +24,18 @@
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Manas Das">
-</head>
+      <script type="text/javascript" src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js">
+</script>
+<script>
+$(document).ready(function() {
+    mermaid.initialize({
+        startOnLoad:true,
+        theme: 'forest',
+    });
+});
+</script>
+    
+  </head>
 <body>
 <header class="site-header" role="banner">
 
@@ -57,7 +68,41 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p>In a directed acylic graph, cycle is not expected. If it is there, we can find it using Depth First Traversal Technique. In a recursive call, if we keep track of visited nodes, we will able to identify if there is any cycle exist. But in landscape of large scale data using DFS could be challenging as we have to keep maininting the visited nodes array and need to pass to the next node. It might cause a high memory overhead to the solution. The task could be solved in a bit different approach using <a href="https://en.wikipedia.org/wiki/Rocha%E2%80%93Thatte_cycle_detection_algorithm">Rocha–Thatte cycle detection algorithm</a>.</p>
 
-<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoiZ3JhcGggTFJcbkEgLS0-fEF8IEJcbkIgLS0-fEJ8IENcbkMgLS0-fEN8IEVcbkMgLS0-fEN8IERcbkQgLS0-fER8IEIiLCJtZXJtYWlkIjpudWxsfQ"></p>
+<div class="mermaid">
+---
+title: Iteration 1
+---
+flowchart LR
+        A --&gt;|A| B
+        B --&gt;|B| C
+        C --&gt;|C| E
+        C --&gt;|C| D
+        D --&gt;|D| B
+</div>
+
+<div class="mermaid">
+---
+title: Iteration 2
+---
+flowchart LR
+        A --&gt; B
+        B --&gt;|A,B| C
+        C --&gt;|B,C| E
+        C --&gt;|B,C| D
+        D --&gt;|C,D| B
+</div>
+<div class="mermaid">
+---
+title: Iteration 3
+---
+flowchart LR
+        A --&gt; B
+        B --&gt;|A,B| C
+        C --&gt;|B,C| E
+        C --&gt;|B,C| D
+        D --&gt;|C,D| B
+</div>
+
 
   </div>
 <a class="u-url" href="/bigdata/dag/cycle/spark/spark-graph/2023/07/27/detect-cycle-in-dag.html" hidden></a>
